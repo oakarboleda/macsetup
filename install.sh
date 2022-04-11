@@ -56,15 +56,12 @@ brew install github/gh/gh
 brew install zsh
 
 #Apps
-brew install --cask dropbox
-brew install --cask firefox
 brew install --cask homebrew/cask-versions/firefox-nightly
 brew install --cask google-chrome
-brew install --cask homebrew/cask-versions/google-chrome-canary
 brew install --cask iterm2
 brew install --cask visual-studio-code
 brew install --cask zoom
-brew install --cask slack
+##brew install --cask slack
 
 # Remove outdated versions from the cellar.
 brew cleanup
