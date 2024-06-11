@@ -18,12 +18,74 @@ brew upgrade
 # Save Homebrew’s installed location
 BREW_PREFIX=$(brew --prefix)
 
+# Oh My Zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+
+
+# Powerlevel10k
+git clone https://github.com/powerline/fonts.git --depth=1
+# install
+cd fonts
+./install.sh
+# clean-up a bit
+cd ..
+rm -rf fonts
+
+
+# NVM
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+nvm install node 12
+
 #Xcode install
 xcode-select --install
 
-# MySQL install
-arm brew install mysql
-arm brew services start mysql
+
+
+brew install \
+zsh \
+wget \
+gmp \
+grep \
+git \
+gh \
+mysql \
+react-native-cli \
+starship \
+watchman \
+php \
+
+
+
+
+# Start Services
+brew services start
+
+
+# Brew Casks install
+brew install --cask \
+  raycast \
+  bitwarden \
+  firefox \
+  visual-studio-code \
+  docker \
+  slack \
+  discord \
+  signal \
+  vlc \
+  calibre \
+  figma \
+  imageoptim \
+  maccy \
+  protonvpn \
+  zoom \
+  sequel-ace \
+  ngrok \
+  keycastr \
+  obsidian \
+  airtable \
+
+
 
 # Composer 
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
@@ -32,36 +94,9 @@ php composer-setup.php
 php -r "unlink('composer-setup.php');"
 mv composer.phar /usr/local/bin/composer
 
+
 composer global require laravel/valet
 valet install
-
-# Oh My Zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# NVM
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
-nvm install node 12
-
-#Tools
-brew install wget
-brew install gmp
-brew install grep
-
-
-brew install git
-brew install git-lfs
-brew install github/gh/gh
-
-#ZSH install
-brew install zsh
-
-#Apps
-brew install --cask homebrew/cask-versions/firefox-nightly
-brew install --cask google-chrome
-brew install --cask iterm2
-brew install --cask visual-studio-code
-brew install --cask zoom
-##brew install --cask slack
 
 # Remove outdated versions from the cellar.
 brew cleanup
