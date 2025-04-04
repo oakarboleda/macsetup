@@ -18,24 +18,17 @@ brew upgrade
 # Save Homebrew’s installed location
 BREW_PREFIX=$(brew --prefix)
 
-# Oh My Zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# oh-my-zsh
+echo Installing Oh-my-zsh...
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 
-
-
-# Powerlevel10k
-git clone https://github.com/powerline/fonts.git --depth=1
-# install
-cd fonts
-./install.sh
-# clean-up a bit
-cd ..
-rm -rf fonts
 
 
 # NVM
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 nvm install node 12
+
 
 #Xcode install
 xcode-select --install
@@ -53,7 +46,7 @@ mysql \
 react-native-cli \
 starship \
 watchman \
-php \
+
 
 
 
@@ -65,18 +58,13 @@ brew services start
 # Brew Casks install
 brew install --cask \
   raycast \
-  bitwarden \
+  chrome \
   firefox \
   visual-studio-code \
   docker \
   slack \
   discord \
-  signal \
-  vlc \
-  calibre \
   figma \
-  imageoptim \
-  maccy \
   protonvpn \
   zoom \
   sequel-ace \
